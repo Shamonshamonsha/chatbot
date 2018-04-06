@@ -9,7 +9,7 @@ module.exports = {
 
         let options = { 
             method: 'GET',
-            url: config.apiUrl+'query?v=20150910&lang=en&query='+params.userQuery+'&sessionId='+Math.random(),
+            url: config.apiUrl+'query?v=20170712&&lang=en&query='+params.userQuery+'&sessionId='+config.sessionId+'&timezone=Asia/Calcutta',
               headers: 
               { 
                   'cache-control': 'no-cache',
@@ -20,7 +20,7 @@ module.exports = {
           request(options, function (error, response, body) {
 
 
-           // console.log("Response from dialog flow",body);
+//            console.log("Response from dialog flow",body);
 
             if(error){
                 console.log("Error",error);
@@ -35,7 +35,7 @@ module.exports = {
            }
 
 
-           let message = (result.result.fulfillment.speech && result.result.fulfillment.speech=='')?config.defaultFallBack:result.result.fulfillment.speech;
+           let message = (result.result.fulfillment.speech && result.result.fulfillment.speech!='')?result.result.fulfillment.speech:config.defaultFallBack;
         
 
             return callback(message);

@@ -23,11 +23,15 @@ router.get('/response', function(req, res, next) {
 
 router.post('/custom',function(req,res,next){
   
-    console.log("From user",req.body.result.resolvedQuery);
-    custom.customResult(req.body.result.resolvedQuery,(result)=>{
-       console.log('ok',result);
-       res.json({
-        'speech':'Your details are '+result.name,
+    console.log("From user",JSON.stringify(req.body));
+    custom.customResult(req.body.result.contexts[0].parameters.number,(result)=>{
+
+        let text = (result)?'Hi '+result.name+result.message:'No details found for this number';
+        
+       
+       
+        res.json({
+        'speech':text,
         'displayText':'Result from webhook'
         });
     });

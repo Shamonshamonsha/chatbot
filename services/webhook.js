@@ -1,9 +1,9 @@
 var data = [
     {
-        'id':1, 'name':'shamon'
+        'id':1, 'name':'shamon','message':' your income certificate has been approved and possession certificate is under processing'
     },
     {
-        'id':2, 'name':'manu'
+        'id':2, 'name':'manu','message':' your income certificate  and  possession certificate has been approved'
     }
 ]
 
