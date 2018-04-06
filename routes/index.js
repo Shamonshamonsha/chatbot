@@ -4,10 +4,10 @@ var router = express.Router();
 
 var services = require('../services/main');
 
-var  webhook = require('../services/webhook');
+var  custom = require('../services/webhook');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/response/', function(req, res, next) {
 
   services.botResponse({
     userQuery:req.query.query
@@ -22,7 +22,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/custom',function(req,res,next){
-   console.log("Response from",req.body);
+  
+    custom.customResult(req.body.result.resolvedQuery);
+
    res.json({
        'speech':'Hello from webhook',
        'displayText':'Result from webhook'
