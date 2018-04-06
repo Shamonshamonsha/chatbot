@@ -243,7 +243,7 @@ Driving The Next Generation Government.</div>
           <div class="panel panel-default">
                 <div class="panel-heading top-bar">
                     <div class="col-md-8 col-xs-8">
-                        <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat - Rajesh M</h3>
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-comment"></span> Chat</h3>
                     </div>
                     <div class="col-md-4 col-xs-4" style="text-align: right;">
                         <a href="#" style="color: #ffffff;
@@ -264,33 +264,20 @@ Driving The Next Generation Government.</div>
 									<p>Hi sir,<br>
 									   How can i help you ?								
 									</p>
-									<time datetime="2009-11-13T20:00">e-District | 10:05:28 PM</time>
+									<time >{{currentDate| date:'d-MM-y | h:mm:s a'}}</time>
 								</div>
 							</div>
 						</div>
 						<!-- BOT -->
 						
-					   	<!-- USER -->
-						<div class="row msg_container base_sent">
-							<div class="col-xs-9 col-md-9">
-								<div class="messages msg_sent">
-									<p>My name is Abhishek Raj. df asfd asdf asf a sdfas fas ad fad f</p>
-									<time datetime="2009-11-13T20:00">User | 10:05:38 PM</time>
-								</div>
-							</div>
-							<div class="col-xs-2 avatar">
-								<img src="user.png" width="100%" class="chatimg">
-							</div>
-						</div>
-						<!-- USER -->
                     </div>
 
                 </div>
                 <div class="panel-footer">
                     <div class="input-group">
-                        <input id="btn-input" ng-model="usertext" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." required="required" />
+                        <input id="btn-input" ng-model="usertext" type="text" ng-keyup="test($event)" class="form-control input-sm chat_input" placeholder="Write your message here..." required="required" />
                         <span class="input-group-btn">
-                        <button class="btn btn-danger btn-sm" ng-click="sendChat()" id="btn-chat">Send</button>
+                        <input type="button" class="btn btn-danger btn-sm"  ng-click="sendChat()" id="btn-chat" value="{{loading}}">
                         </span>
                     </div>
                 </div>

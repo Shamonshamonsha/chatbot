@@ -27,11 +27,18 @@ module.exports = {
                 return callback(config.defaultFallBack)
             }
 
+
            let result = JSON.parse(body);
 
+           if(result.status.code!=200){
+               return callback(config.defaultFallBack)
+           }
+
+
+           let message = (result.result.fulfillment.speech && result.result.fulfillment.speech=='')?config.defaultFallBack:result.result.fulfillment.speech;
         
 
-            return callback((result.result.fulfillment.speech=='')?config.defaultFallBack:result.result.fulfillment.speech);
+            return callback(message);
            
           });
     }
