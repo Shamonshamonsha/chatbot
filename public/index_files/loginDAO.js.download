@@ -1,0 +1,787 @@
+if (typeof dwr == 'undefined' || dwr.engine == undefined) throw new Error('You must include DWR engine before including this file');
+
+(function() {
+if (dwr.engine._getObject("loginDAO") == undefined) {
+var p;
+
+p = {};
+p._path = '/dwr';
+
+
+
+
+
+p.getDate = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getDate', arguments);
+};
+
+
+
+
+
+
+p.getUser = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getUser', arguments);
+};
+
+
+
+
+
+
+p.getDistrict = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getDistrict', arguments);
+};
+
+
+
+
+
+
+p.getOfficeLevel = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getOfficeLevel', arguments);
+};
+
+
+
+
+
+p.getCertificatename = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getCertificatename', arguments);
+};
+
+
+
+
+
+
+
+p.logoutLog = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'logoutLog', arguments);
+};
+
+
+
+
+
+p.getOfficeAndDept = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getOfficeAndDept', arguments);
+};
+
+
+
+
+
+
+
+
+p.getPrivileges = function(p0, p1, p2, p3, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getPrivileges', arguments);
+};
+
+
+
+
+
+p.unlockUser = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'unlockUser', arguments);
+};
+
+
+
+
+
+p.getLastLoginLogin = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getLastLoginLogin', arguments);
+};
+
+
+
+
+
+p.getFailedAttempts = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getFailedAttempts', arguments);
+};
+
+
+
+
+
+
+
+p.loginLog = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'loginLog', arguments);
+};
+
+
+
+
+
+p.resetPassword = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'resetPassword', arguments);
+};
+
+
+
+
+
+p.getLoggedDistrict = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getLoggedDistrict', arguments);
+};
+
+
+
+
+
+p.getLoggedDepts = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getLoggedDepts', arguments);
+};
+
+
+
+
+
+p.isExistingPIO = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'isExistingPIO', arguments);
+};
+
+
+
+
+
+p.isExistingWorkSeat = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'isExistingWorkSeat', arguments);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p.saveRTIPrivileges = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'saveRTIPrivileges', arguments);
+};
+
+
+
+
+
+
+
+p.loginFailedDetails = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'loginFailedDetails', arguments);
+};
+
+
+
+
+
+p.isUserExisting = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'isUserExisting', arguments);
+};
+
+
+
+
+
+p.selectDenyUserId = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'selectDenyUserId', arguments);
+};
+
+
+
+
+
+p.saveDenyUser = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'saveDenyUser', arguments);
+};
+
+
+
+
+p.selectDenyUser = function(callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'selectDenyUser', arguments);
+};
+
+
+
+
+
+
+p.selectDenyUser = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'selectDenyUser', arguments);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p.assignPrivileges = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'assignPrivileges', arguments);
+};
+
+
+
+
+
+p.isThisPrivlegeAssigned = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'isThisPrivlegeAssigned', arguments);
+};
+
+
+
+
+
+
+
+
+
+
+
+p.deletePrivilegeDWR = function(p0, p1, p2, p3, p4, p5, p6, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'deletePrivilegeDWR', arguments);
+};
+
+
+
+
+
+p.saveAssignPrivilegeObject = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'saveAssignPrivilegeObject', arguments);
+};
+
+
+
+
+
+
+
+p.listPrivileges = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'listPrivileges', arguments);
+};
+
+
+
+
+p.getAllUsers = function(callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getAllUsers', arguments);
+};
+
+
+
+
+
+p.changePassword = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'changePassword', arguments);
+};
+
+
+
+
+
+p.updateIntialLoginStatus = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'updateIntialLoginStatus', arguments);
+};
+
+
+
+
+
+p.chkPswdValidity = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'chkPswdValidity', arguments);
+};
+
+
+
+
+
+p.getUserOnly = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getUserOnly', arguments);
+};
+
+
+
+
+
+p.getPrivileg = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getPrivileg', arguments);
+};
+
+
+
+
+p.getserverDate = function(callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getserverDate', arguments);
+};
+
+
+
+
+
+
+p.saveUpdatePrivileges = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'saveUpdatePrivileges', arguments);
+};
+
+
+
+
+
+
+p.saveUpdatePrivileges = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'saveUpdatePrivileges', arguments);
+};
+
+
+
+
+
+
+
+p.getMinToDateDWR = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getMinToDateDWR', arguments);
+};
+
+
+
+
+
+
+p.getDateDWR = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getDateDWR', arguments);
+};
+
+
+
+
+
+
+p.backUpTerminatedPrivilages = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'backUpTerminatedPrivilages', arguments);
+};
+
+
+
+
+
+
+
+
+p.listUserPrivileges = function(p0, p1, p2, p3, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'listUserPrivileges', arguments);
+};
+
+
+
+
+
+
+
+p.getOfficerPrivileges = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getOfficerPrivileges', arguments);
+};
+
+
+
+
+
+
+
+
+
+p.getOfficesForUserDWR = function(p0, p1, p2, p3, p4, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getOfficesForUserDWR', arguments);
+};
+
+
+
+
+
+p.saveBckLoginDeny = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'saveBckLoginDeny', arguments);
+};
+
+
+
+
+
+p.deleteDenyLogin = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'deleteDenyLogin', arguments);
+};
+
+
+
+
+
+
+
+
+p.getDepartmentForUserDWR = function(p0, p1, p2, p3, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getDepartmentForUserDWR', arguments);
+};
+
+
+
+
+
+p.getAllPrivilages = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getAllPrivilages', arguments);
+};
+
+
+
+
+
+
+p.backupAllPrivilages = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'backupAllPrivilages', arguments);
+};
+
+
+
+
+
+
+p.getCurrentOffice = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getCurrentOffice', arguments);
+};
+
+
+
+
+p.getCreditLimit = function(callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getCreditLimit', arguments);
+};
+
+
+
+
+
+p.isThisRTIPrivlegeAssigned = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'isThisRTIPrivlegeAssigned', arguments);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+p.deleteRTIPrivilegeDWR = function(p0, p1, p2, p3, p4, p5, p6, p7, p8, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'deleteRTIPrivilegeDWR', arguments);
+};
+
+
+
+
+
+p.rtiassignPrivileges = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'rtiassignPrivileges', arguments);
+};
+
+
+
+
+
+
+
+
+
+
+
+p.getsectionListDWR = function(p0, p1, p2, p3, p4, p5, p6, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getsectionListDWR', arguments);
+};
+
+
+
+
+
+
+
+
+p.listRtiUserPrivileges = function(p0, p1, p2, p3, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'listRtiUserPrivileges', arguments);
+};
+
+
+
+
+
+p.isExistingPIODWR = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'isExistingPIODWR', arguments);
+};
+
+
+
+
+
+p.isExistingWorkSeatDWR = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'isExistingWorkSeatDWR', arguments);
+};
+
+
+
+
+
+p.isExistingModeratorDWR = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'isExistingModeratorDWR', arguments);
+};
+
+
+
+
+
+p.oneOfficeModerator = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'oneOfficeModerator', arguments);
+};
+
+
+
+
+
+
+
+
+p.alreadyAllottedSeatDwr = function(p0, p1, p2, p3, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'alreadyAllottedSeatDwr', arguments);
+};
+
+
+
+
+
+
+
+p.exclusivePioAndAppallateDwr = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'exclusivePioAndAppallateDwr', arguments);
+};
+
+
+
+
+
+
+
+p.exclusivePioAndAppallateValidation = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'exclusivePioAndAppallateValidation', arguments);
+};
+
+
+
+
+
+
+
+
+p.getFreeSections = function(p0, p1, p2, p3, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getFreeSections', arguments);
+};
+
+
+
+
+
+
+
+
+
+p.othersOccupiedSeat = function(p0, p1, p2, p3, p4, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'othersOccupiedSeat', arguments);
+};
+
+
+
+
+
+p.pgAdminValidation = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'pgAdminValidation', arguments);
+};
+
+
+
+
+
+
+p.getApprovingUser = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getApprovingUser', arguments);
+};
+
+
+
+
+
+
+
+p.getRtiPrivilegesWithSectionSeat = function(p0, p1, p2, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getRtiPrivilegesWithSectionSeat', arguments);
+};
+
+
+
+
+
+
+p.saveUpdateRtiPrivilegesWithSectionSeat = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'saveUpdateRtiPrivilegesWithSectionSeat', arguments);
+};
+
+
+
+
+
+p.isPrivilegeValid = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'isPrivilegeValid', arguments);
+};
+
+
+
+
+
+p.getPrivilegebyOffice = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getPrivilegebyOffice', arguments);
+};
+
+
+
+
+
+
+p.getObject = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getObject', arguments);
+};
+
+
+
+
+
+p.saveObject = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'saveObject', arguments);
+};
+
+
+
+
+
+
+p.removeObject = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'removeObject', arguments);
+};
+
+
+
+
+
+p.getObjects = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getObjects', arguments);
+};
+
+
+
+
+
+
+
+
+
+p.performBulkUpdate = function(p0, p1, p2, p3, p4, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'performBulkUpdate', arguments);
+};
+
+
+
+
+
+
+
+
+
+p.generateBulkUpdateQuery = function(p0, p1, p2, p3, p4, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'generateBulkUpdateQuery', arguments);
+};
+
+
+
+
+p.clearHsession = function(callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'clearHsession', arguments);
+};
+
+
+
+
+
+p.getFromSQLquery = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getFromSQLquery', arguments);
+};
+
+
+
+
+p.getSessionFactory = function(callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getSessionFactory', arguments);
+};
+
+
+
+
+
+p.setSessionFactory = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'setSessionFactory', arguments);
+};
+
+
+
+
+p.getHibernateTemplate = function(callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'getHibernateTemplate', arguments);
+};
+
+
+
+
+
+p.setHibernateTemplate = function(p0, callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'setHibernateTemplate', arguments);
+};
+
+
+
+
+p.afterPropertiesSet = function(callback) {
+return dwr.engine._execute(p._path, 'loginDAO', 'afterPropertiesSet', arguments);
+};
+
+dwr.engine._setObject("loginDAO", p);
+}
+})();
+

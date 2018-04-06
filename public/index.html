@@ -1,1 +1,592 @@
-ok
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0032)https://edistrict.kerala.gov.in/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Pragma" content="no-cache">
+<title>e D i s t r i c t</title>
+
+ <script type="text/javascript" src="./index_files/util.js.download"></script>
+<script type="text/javascript" src="./index_files/engine.js.download"></script>
+<script type="text/javascript" src="./index_files/sha256.js.download"></script>
+<script type="text/javascript" src="./index_files/ed_validator.js.download"></script>
+<script type="text/javascript" src="./index_files/loginDAO.js.download"></script>
+<script type="text/javascript" src="./index_files/communityDAO.js.download"></script>
+<style type="text/css">
+
+
+#nav {
+    height:20px;
+	width: 100%;
+	font-weight:normal;
+	float: left;
+	margin: 0 0 0 0;
+	padding: 0;
+	list-style: none;
+	background-color: #85C2FF;
+	border-bottom: 1px solid #ccc; 
+	border-top: 1px solid #ccc; }
+#nav li {
+	float: left; }
+#nav li a {
+	display: block;
+	padding: 4px 15px;
+	text-decoration: none;	
+	color: #069;
+	border-right: 1px solid #ccc; }
+#nav li a:hover {
+	color: #c00;
+	background-color: #fff; }
+		
+
+img {
+	border: none;
+	border-color: #FFFFFF;
+}
+</style>
+<script type="text/javascript">
+
+function load(option,error){	
+	
+	if (top.location.href != self.location.href) {	
+		top.location.href = "edistrictLogin.jsp";}
+	changeHeader();
+	
+
+}
+
+function replaceContent() {
+	imgSrc = "captcha.do";
+	tmp = new Date(); 
+    tmp = "?"+tmp.getTime() ;
+    document.getElementById("captchaImage").src =imgSrc+tmp;
+    document.forms[0].j_captcha_response.value = "";
+}
+
+function chkvalidate() {
+	var usernm = document.frmLogin.j_username.value;
+	var pswd = document.frmLogin.j_passwordtxt.value;	
+	if(pswd.length!=0){
+		var shapswd = rstr_sha256(pswd);
+		var shapswdhex =hex_sha256(pswd);
+		document.frmLogin.j_password.value=shapswd;	
+		document.frmLogin.j_passwordhex.value=shapswdhex;
+		document.frmLogin.j_passwordtxt.value=shapswd;
+
+	}else{
+		document.frmLogin.j_passwordtxt.value="";
+		}
+	document.frmLogin.login.value="login";
+
+	var rd = document.forms['frmLogin'].userType;
+	
+		if(document.forms['frmLogin'].userType[1].checked == true) {
+			
+				document.forms['frmLogin'].action = "Login.htm";
+				}
+			else if(document.forms['frmLogin'].userType[0].value == "portal") {
+				document.forms['frmLogin'].action = "portalUserLogin.htm";
+			}
+		
+}
+
+function pswdMatch() {
+	var opswd = document.frmLogin.old_passwordtxt.value;
+	var npswd = document.frmLogin.new_passwordtxt.value;
+	var cpswd = document.frmLogin.conf_passwordtxt.value;
+
+	if(opswd.length!=0 && npswd.length!=0 && cpswd.length!=0){		
+		if(cpswd==npswd){ 
+			var old_shapswd = rstr_sha256(opswd);	
+			var new_shapswd = rstr_sha256(npswd);	
+			document.frmLogin.old_password.value=old_shapswd;
+			document.frmLogin.change_password.value=new_shapswd;				
+		}else{
+			alert("New and Confirm passwords doesnot match");
+			document.frmLogin.change_password.value="";
+		}
+		
+	}
+	else
+		document.frmLogin.change_password.value="";
+	document.frmLogin.login.value="chgpswd";
+	document.frmLogin.submit();
+}
+
+function submitDs(dsStatus){
+	document.frmLogin.login.value=dsStatus;
+	document.frmLogin.submit();
+
+}
+
+
+
+function resolutionwidth() {
+	var x;
+	var y;
+	x=window.screen.width;
+	y=window.screen.height;
+	alert("x : "+x+" y : "+y);
+	document.getElementById('main').width=x-63;		
+	document.getElementById('main').height=y;	
+	document.getElementById('middle').height=y-50;
+	document.getElementById('leftbar').height=y-50;
+	document.getElementById('rightbar').height=y-50;
+	var xx=x-63;
+	var yy=y-50;
+	alert(xx+"x"+yy);
+	alert("x"+document.getElementById('main').width);
+	alert("y"+document.getElementById('main').height);
+}
+</script><script types="text/javascript">
+
+var hgt=window.screen.availHeight;
+var wid=window.screen.availWidth;
+if((wid<1100)){
+
+	document.write('<link rel="stylesheet" type="text/css" href="css/styleShort.css"media="screen" />');
+	
+}
+else{
+	document.write('<link rel="stylesheet" type="text/css" href="css/style.css"	media="screen" />');
+	
+}
+if ((wid<1024) && (hgt<786)) {
+	alert("For proper working of e-District project minimum resolution of 1024X786 needed."+
+			"+Please adjust your screen resolution");
+	if(navigator.appName=="Microsoft Internet Explorer") { 
+		self.close(); 
+	} 
+	else {
+		window.close(); 
+	} 
+}
+
+function changeHeader() {
+	var rd = document.forms['frmLogin'].userType;
+	for (var i = 0; i < rd.length; i++ ) {
+		if(document.forms['frmLogin'].userType[i].checked == true) {
+			if(document.forms['frmLogin'].userType[i].value == "official") {
+				document.getElementById('loginHeader').innerHTML = "Official Login";
+				document.getElementById("portalcreatn").style.visibility="hidden";
+				document.getElementById("portalcreatn").style.display="none";
+				document.getElementById("resetPassword").style.visibility="hidden"; 
+			
+				document.getElementById("resetPassword").style.display="none";
+				document.getElementById("findLoginname").style.visibility="hidden";
+				document.getElementById("findLoginname").style.display="none";
+				
+				document.getElementById("officialResetPassword").style.visibility="visible";
+				document.getElementById("officialResetPassword").style.display="block";
+				
+			}
+			else if(document.forms['frmLogin'].userType[i].value == "portal") {
+				document.getElementById('loginHeader').innerHTML = "Portal User Login";
+				document.getElementById("portalcreatn").style.visibility="visible";
+				document.getElementById("resetPassword").style.visibility="visible"; 
+				document.getElementById("findLoginname").style.visibility="visible";
+				document.getElementById("findLoginname").style.display="block";				
+				document.getElementById("portalcreatn").style.display="block";
+				document.getElementById("resetPassword").style.display="block";
+				document.getElementById("officialResetPassword").style.visibility="hidden";
+				document.getElementById("officialResetPassword").style.display="none";
+				
+
+			}
+		}
+	}
+}
+
+function checkDateServerSide()
+{
+var sysDate=new Date();
+document.getElementById("clientTime").value=sysDate.getTime();
+	
+}
+
+function  checkDate(){
+loginDAO.getserverDate(gotDate);
+}
+function  gotDate(serverTimeinMilliSec){
+checkNoticeExisting();	
+var sysDate=new Date();
+
+var serverDate= new Date();
+var serverMilliseconds=serverTimeinMilliSec;
+serverDate.setTime(parseFloat(serverMilliseconds)+parseFloat(60000));
+
+if(parseFloat(sysDate.getTime())>parseFloat(serverMilliseconds)+parseFloat(300000)||parseFloat(sysDate.getTime())<parseFloat(serverMilliseconds)-parseFloat(300000)){
+		alert('Your System Clock Appears to be Incorrect,Please Correct it to :'+serverDate+'  Before Logging In');
+		  return;
+		}   
+
+}
+
+</script><link rel="stylesheet" type="text/css" href="./index_files/style.css" media="screen"><script type="text/javascript">   
+
+
+if (/Firefox[\/\s](\d+\.\d+)/.test(navigator.userAgent))
+{ 
+ var ffversion=new Number(RegExp.$1) 
+ if (ffversion<3.5)
+ {  
+	 alert("For best view of e-District project your browser should be  FireFox 3.5 or above .");
+ }
+}
+	
+
+if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){ 
+ var ieversion=new Number(RegExp.$1)
+ if (ieversion<7.0)
+   {
+	   alert("For best view of e-District project  your browser should be  Internet Explorer 7 or above");
+   }
+
+}
+
+function checkNoticeExisting()
+{
+	
+       
+    dwr.util.useLoadingMessage();
+    
+    communityDAO.getAllNotificationDWR(gotNotice);
+    
+}
+
+function gotNotice(notz)
+{
+
+if(notz!=null)
+	{
+
+var noticeStr='';
+for(var i=0;i<notz.length;i++){
+
+
+noticeStr=noticeStr+notz[i].heading+'<br>';
+noticeStr=noticeStr+notz[i].details;
+if(i<notz.length-1){
+noticeStr=noticeStr+'<br><br>';
+	
+}
+
+}
+if(notz.length>0){
+	
+document.getElementById('marQ').innerHTML='<h2>Notice</h2><marquee id="notzdiv" scrolldelay="60" scrollamount="2" direction="up"  style="color:blue;"  onMouseOver="this.stop();" onMouseOut="this.start();"><span>'+noticeStr+'</span></marquee>';
+
+
+}else{
+
+document.getElementById('marQ').innerHTML='<h2>Notice</h2><marquee id="notzdiv" scrolldelay="60" scrollamount="2" behavior="scroll" direction="up"  style="color:black;"  onMouseOver="this.stop();" onMouseOut="this.start();"><span></span></marquee>';
+
+	
+}
+
+
+
+	}
+
+	
+}
+function checkNoticeDetails()
+{
+	
+       
+    dwr.util.useLoadingMessage();
+    
+    communityDAO.getAllNotificationDWR(gotDetails);
+    
+}
+function gotDetails(notdtls)
+{
+
+	if(notdtls!=null)
+	{
+var noticeStr='';
+for(var i=0;i<notdtls.length;i++){
+
+
+noticeStr=noticeStr+notdtls[i].heading+"--->"+notdtls[i].details;
+if(i<notdtls.length-1){
+noticeStr=noticeStr+"......."+"\n"+(parseInt(i)+2+")");
+}
+
+}
+dwr.util.setValue("detaildiv",""+" "+" "+noticeStr+"");
+
+	}
+	else
+	{
+		
+		dwr.util.setValue("detaildiv","notice null");
+	}
+	
+}
+
+function hide(){
+	if(document.getElementById("detaildiv"))
+		document.getElementById("detaildiv").innerHTML="";
+	}
+
+function capLock(e){
+	
+
+	kc = e.keyCode?e.keyCode:e.which;
+	sk = e.shiftKey?e.shiftKey:((kc == 16)?true:false);
+	 if(((kc >= 65 && kc <= 90) && !sk)||((kc >= 97 && kc <= 122) && sk)){
+		
+	  document.getElementById('capsLockDiv').style.visibility = 'visible';
+	 }
+	 else{
+	  document.getElementById('capsLockDiv').style.visibility = 'hidden';
+	 }
+
+		if(window.event){
+					sk1 = window.event.shiftKey?window.event.shiftKey:((window.event.keyCode == 16)?true:false);
+					
+
+			if((window.event.keyCode >= 97 && window.event.keyCode <= 122)&& sk || (window.event.keyCode>=65&&window.event.keyCode<=90)&& !sk)
+	        { 
+				document.getElementById('capsLockDiv').style.visibility = 'visible';
+	        }
+	        else
+	        {    document.getElementById('capsLockDiv').style.visibility = 'hidden';
+	        	
+	        }
+			
+			 
+			}
+	 
+	}
+</script></head>
+
+
+
+
+
+
+
+
+<body onload="load(&#39;null&#39;,&#39;null&#39;); checkDate();">
+
+
+
+
+<div id="main">
+<div id="header1" style="padding-left: 0px;"></div>
+<div style="text-align: center; display: inline;">
+<ul id="nav">
+<li>
+<a href="https://edistrict.kerala.gov.in/governmentOrders.jsp" style="color: black;">Govt Orders</a>
+</li>
+<li>
+<a href="https://edistrict.kerala.gov.in/contactDetails.html" style="color: black;">Contacts</a></li>
+<li><a href="https://edistrict.kerala.gov.in/services.html" style="color: black;">Services</a></li>
+<li><a href="https://edistrict.kerala.gov.in/commonForm.jsp" style="color: black;">Downloads</a></li>
+	
+	<li>
+	<a href="https://edistrict.kerala.gov.in/registerPortalUser.do?token=15230273948743546207553181827556" style="color: black;">
+	Portal User Creation</a>
+	</li>
+	<li>	<a href="https://edistrict.kerala.gov.in/qrVerify.do?qr=qrVerify" style="color: black;">Certificate
+		Verification</a></li>
+	<li>	<a href="https://edistrict.kerala.gov.in/openSearch.do?openStat=openSearch" style="color: red;"><b>Application Status</b></a></li>
+
+</ul>
+
+</div>
+<div id="content">
+<div id="leftbar">
+<div style="background-color: #FFFFFF;">
+<div id="marQ" style="height: 340px;"><h2>Notice</h2><marquee id="notzdiv" scrolldelay="60" scrollamount="2" direction="up" style="color:blue;" onmouseover="this.stop();" onmouseout="this.start();"><span>.<br><table border="5"><tbody><tr><td><span style="color:" #339966;=""><strong>Parathi Parihara Adalath Thrissur - Chalakudy Taluk - April 2018</strong></span></td><td>16-03-2018 --to-- 06-04-2018</td></tr></tbody></table><br><br>.<br><table border="5"><tbody><tr><td><span style="color:" #339966;=""><strong>Parathi Parihara Adalath Palakkad - Alathur Taluk - April 2018</strong></span></td><td>24-03-2018 --to-- 07-04-2018</td></tr></tbody></table><br><br>.<br><table border="5"><tbody><tr><td><span style="color:" #339966;=""><strong>Parathi Parihara Adalath Malappuram - Ponnani Taluk - April 2018</strong></span></td><td>04-04-2018 --to-- 14-04-2018</td></tr></tbody></table></span></marquee></div>
+</div>
+<br>
+<div id="termsdiv" style="background:#eaeaea;">
+<a href="https://edistrict.kerala.gov.in/#" style="background:#eaeaea;" onclick="window.open(&#39;TermsConditions.html&#39;, &#39;newwindow&#39;, &#39;width=500, height=500&#39;); return false;"><font color="blue">Terms and Conditions</font></a><br>
+<a href="https://edistrict.kerala.gov.in/#" style="background:#eaeaea;" onclick="window.open(&#39;privacy-policy.html&#39;, &#39;newwindow&#39;, &#39;width=500, height=500&#39;); return false;"><font color="blue">Privacy Policy</font></a><br>
+<a href="https://edistrict.kerala.gov.in/#" style="background:#eaeaea;" onclick="window.open(&#39;Refund-policy.html&#39;, &#39;newwindow&#39;, &#39;width=500, height=500&#39;); return false;"><font color="blue">Cancellation Refund-Policy</font></a><br>
+<a href="https://edistrict.kerala.gov.in/#" style="background:#eaeaea;" onclick="window.open(&#39;contactDetailsNew.html&#39;, &#39;newwindow&#39;, &#39;width=500, height=500&#39;); return false;"><font color="blue">Contacts</font></a><br>
+<a href="https://edistrict.kerala.gov.in/#" style="background:#eaeaea;" onclick="window.open(&#39;servicesNew.html&#39;, &#39;newwindow&#39;, &#39;width=500, height=500&#39;); return false;"><font color="blue">List of Services</font></a><br>
+<br><br>
+</div>
+<div id="rightBottomMessages1"><font size="1px">Best viewed
+with Mozilla Firefox 3.5 or above.<br>
+ If you have display problem, it may be<br>
+because Meera font is not installed. <br>
+Download from above panel and install. </font></div>
+</div>
+
+</div>
+
+
+<div id="middle">
+<center><blink> <font color="red" style="font-family: Captain Howdy;"> "GOVERNMENT SERVICES AT OUR
+FINGER TIPS" </font> </blink></center>
+<br>
+<div align="justify" style="padding: 5px 10px 5px 10px"><font color="#305f89" face="meera" size="4"> Kerala E-District project
+intend to provide Government services to citizens through Common Service
+Centers(CSC) which are easily accessible. Services from different
+departments are brought under one umbrella at any CSC. Some of the
+services are also made available through online portal. It utilizes
+backend computerization to e-enable the delivery of services and ensures
+transparency and uniform application of rules. The project involves
+integrated and seamless delivery of services to public by automation,
+integration and incorporating Business Process Re-Engineering(BPR) where
+ever required. In a nutshell Edistrict is a tailor made program for
+minimizing effort and time to provide prompt and effective services to
+the public. <br>
+<div id="dot"></div>
+<br>
+<font face="meera" size="4"> ജനങ്ങള്‍ക്ക് പൊതു സേവന കേന്ദ്രങ്ങള്‍
+വഴിയും, വെബ് പോര്‍ട്ടല്‍ വഴിയും സര്‍ക്കാരിന്റെ സേവനങ്ങള്‍ നല്‍കുവാന്‍
+വേണ്ടി ഉദ്ദേശിച്ചു നടപ്പിലാക്കുന്ന പദ്ധതിയാണ് ഇ-ഡിസ്ട്രിക്റ്റ്. വിവിധ
+ഡിപ്പാര്‍ട്മെന്‍റുകളില്‍ നിന്നുള്ള സേവനങ്ങള്‍ ഏതൊരു സേവന കേന്ദ്രത്തില്‍
+കൂടിയും ലഭ്യമാകുന്നതാണ്. ചില സേവനങ്ങള്‍ ഓണ്‍ലൈന്‍ വെബ് പോര്‍ട്ടല്‍
+വഴിയും ലഭ്യമാകുന്നതാണ്. അതാത് വകുപ്പുകളില്‍ നടപ്പിലാക്കിയ കമ്പ്യൂട്ടര്‍
+വല്‍ക്കരണം പരമാവധി പ്രയോജനപ്പെടുത്തി സുതാര്യമായും നിഷ്പക്ഷമായും
+വേഗതയിലും സേവനങ്ങള്‍ ലഭ്യമാക്കുകയാണ് ഇതുകൊണ്ട് ഉദ്ദേശിക്കുന്നത്.
+ഇതിനാവശ്യമായ നടപടി ക്രമങ്ങളിലെ ലഘൂകരണവും ഇതുവഴി നടപ്പിലാക്കുന്നു.
+ചുരുക്കത്തില്‍ ആയാസരഹിതമായും കുറഞ്ഞ സമയത്തിനുള്ളിലും സേവനങ്ങള്‍
+ലഭ്യമാക്കുന്നതിനു പ്രത്യേകം തയ്യാറാക്കിയ പദ്ധതിയാണ് ഇ-ഡിസ്ട്രിക്റ്റ്. </font> </font>
+</div>
+</div>
+
+<div id="contentRight">
+
+<div id="rightbar">
+<form name="frmLogin" id="frmLogin" method="post"><input type="hidden" name="tknName" id="tknName" value="token"> <input type="hidden" name="token" id="token" value="15230273948743546207553181827556">
+<div style="background-color: #FFFFFF;">
+<h2 id="loginHeader">Portal User Login</h2>
+<div align="center"><input id="portal" type="radio" value="portal" name="userType" checked="true" onclick="changeHeader();">Portal User
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="official" value="official" name="userType" onclick="changeHeader();">Official</div><br>
+<div style="width: 100%;"><input name="login" type="hidden" id="login" value="logout1">
+<table>
+	<tbody><tr>
+		<td class="rightLblClass">Loginname</td>
+		<td id="rightTdClass"><input type="text" name="j_username" id="j_username" title="Loginname case sensitive" class="login-text" autocomplete="off" onkeypress="capLock(event);"></td>
+	</tr>
+	<tr>
+		<td class="rightLblClass">Password</td>
+		<td id="rightTdClass"><input type="password" name="j_passwordtxt" id="j_passwordtxt" class="login-text" onkeypress="capLock(event);" autocomplete="off"></td>
+	</tr>
+	<tr>
+	
+	<td colspan="1" width="50%"><div id="portalcreatn" style="visibility: visible; display: block;"><a href="https://edistrict.kerala.gov.in/registerPortalUser.do?token=15230273948743546207553181827556" onclick="" style="color: black;"><font color="red">New PortalUserCreation</font></a>	</div></td>
+	
+	<td colspan="1" width="50%"><div id="resetPassword" style="visibility: visible; display: block;"><a href="https://edistrict.kerala.gov.in/portalPasswordReset.do?token=15230273948743546207553181827556" onclick="" style="color: black;"><font color="red">Forgot Password ?</font></a>	</div>
+	<div id="officialResetPassword" style="visibility: hidden; display: none;"><a href="https://edistrict.kerala.gov.in/officialPasswordReset.do?token=15230273948743546207553181827556" onclick="" style="color: black;"><font color="red">Forgot Password ?</font></a></div>				
+	</td>
+	</tr>
+	<tr>
+	<td></td>
+	<td colspan="1" width="50%"><div id="findLoginname" style="visibility: visible; display: block;"><a href="https://edistrict.kerala.gov.in/findportalLoginname.do?token=15230273948743546207553181827556" onclick="" style="color: black;"><font color="red">Forgot Loginname ?</font></a>	</div></td>				
+	</tr>
+	<tr><td width="50%"></td><td colspan="1" width="50%"></td></tr>
+	<tr>
+		<td colspan="2"><br>
+		Enter the case sensitive characters as they are shown.</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+		<table width="100%">
+			<tbody><tr>
+				<td align="left" width="50%">
+				<div style="border: 1px solid #DEDEDE;"><img id="captchaImage" name="captchaImage" src="./index_files/captcha.do" width="100px" height="50px"></div>
+				</td>
+				<td align="left" width="50%"><input type="text" name="j_captcha_response" class="captcha-text" autocomplete="off">
+				<a href="javascript:replaceContent();"> <img src="./index_files/refresh.jpg" width="25px" height="20px" title="Click here to change the character verification code"> </a></td>
+			</tr>
+		</tbody></table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><br>
+		Subsequent pages will be displayed in</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><input type="radio" name="LangRadioGroup" id="LangRadioGroup" value="e" checked="checked">English
+		<input type="radio" name="LangRadioGroup" id="LangRadioGroup" value="m">മലയാളം</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><input type="submit" id="search-submit" align="middle" onclick="checkDateServerSide();chkvalidate();checkFieldValidators();" value="Login" class="button">
+		</td>
+	</tr>
+</tbody></table>
+<input type="hidden" name="j_password" id="j_password">
+<input type="hidden" name="j_passwordhex" id="j_passwordhex">
+<input type="hidden" name="clientTime" id="clientTime">
+<div class="error_strings">
+  
+</div>
+<div>
+<font color="blue"><b></b></font>
+</div>
+<div id="frmLogin_errorloc" class="error_strings"></div>
+</div>
+<div id="capsLockDiv" name="capsLockDiv" style="visibility: hidden" class="error_strings">Caps Lock is On</div>
+</div>
+</form>
+</div>
+
+<div id="rightBottomMessages1"><br>
+<table>
+	<tbody><tr>
+		<td colspan="2"><font size="1px"> Designed and Developed
+		by</font></td>
+	</tr>
+	<tr>
+		<td width="5%"><img src="./index_files/niclogosmall.jpg" align="middle" height="25px"></td>
+		<td><font size="1px"><strong>National Informatics
+		Centre,<br>
+		Kerala State Centre.</strong></font></td><td></td>
+	</tr>
+     <tr>
+		<td colspan="3"><font size="1px"> <br> Content / Data Managed by KSITM / Respective Departments.</font></td>
+	</tr>
+</tbody></table>
+
+</div>
+
+</div>
+
+<div id="footer"><img src="./index_files/niclogosmall.jpg" align="middle">
+Driving The Next Generation Government.</div>
+ <input type="hidden" name="old_password" id="old_password"> <input type="hidden" name="change_password" id="change_password"> </div>
+<script language="JavaScript" type="text/javascript">
+function checkFieldValidators(){
+if(document.getElementById("userType")){
+	  var frmvalidator  = new Validator("frmLogin");
+	if(document.forms['frmLogin'].userType[0].checked == true) 
+	{		 
+	 frmvalidator.EnableOnPageErrorDisplaySingleBox();
+	 frmvalidator.EnableMsgsTogether();
+	 frmvalidator.addValidation("j_username","req","Please enter User Name");
+	 frmvalidator.addValidation("j_username","maxlen=20",	"Max length for User Name is 20");
+	 frmvalidator.addValidation("j_username","minlen=4",	"Min length for User Name is 4");
+	 frmvalidator.addValidation("j_username","email",		"User Name must be a valid email address");
+	 frmvalidator.addValidation("j_passwordtxt","req","Please enter password");
+	 frmvalidator.addValidation("j_username","minlen=4",	"Min length for password is 4");
+	
+}else{
+	 frmvalidator.EnableOnPageErrorDisplaySingleBox();
+	 frmvalidator.EnableMsgsTogether();
+	 frmvalidator.addValidation("j_username","req","Please enter User Name");
+	 frmvalidator.addValidation("j_username","maxlen=20",	"Max length for User Name is 20");
+	 frmvalidator.addValidation("j_username","minlen=4",	"Min length for User Name is 4");
+	 frmvalidator.addValidation("j_username","alphanumeric","User Name can contain alphanumeric chars only");
+	 frmvalidator.addValidation("j_passwordtxt","req","Please enter password");
+	 frmvalidator.addValidation("j_username","minlen=4",	"Min length for password is 4");
+}
+}
+}
+	function showAlert(msg)
+	{
+     	alert(msg);
+	}
+	 
+	</script>
+
+<div id="disabledZone" style="position: absolute; z-index: 1000; left: 0px; top: 0px; width: 100%; height: 100%; visibility: hidden;"></div><div id="messageZone" style="position: absolute; top: 0px; right: 0px; background: red; color: white; font-family: Arial, Helvetica, sans-serif; padding: 4px; visibility: hidden;">Loading</div></body></html>
