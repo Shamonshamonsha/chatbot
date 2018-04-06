@@ -7,18 +7,18 @@
 <meta http-equiv="Pragma" content="no-cache">
 <title>e D i s t r i c t</title>
 
- <script type="text/javascript" src="./index_files/util.js.download"></script>
+ <!--<script type="text/javascript" src="./index_files/util.js.download"></script>
 <script type="text/javascript" src="./index_files/engine.js.download"></script>
 <script type="text/javascript" src="./index_files/sha256.js.download"></script>
 <script type="text/javascript" src="./index_files/ed_validator.js.download"></script>
 <script type="text/javascript" src="./index_files/loginDAO.js.download"></script>
-<script type="text/javascript" src="./index_files/communityDAO.js.download"></script>
+<script type="text/javascript" src="./index_files/communityDAO.js.download"></script>-->
 <link rel="stylesheet" type="text/css" href="./index_files/style.css"	media="screen" />
 <style type="text/css">
 
 
 #nav {
-    height:20px;
+    height:30px;
 	width: 100%;
 	font-weight:normal;
 	float: left;
@@ -46,335 +46,11 @@ img {
 	border-color: #FFFFFF;
 }
 </style>
-<script type="text/javascript">
 
-function load(option,error){	
-	
-	if (top.location.href != self.location.href) {	
-		top.location.href = "edistrictLogin.jsp";}
-	changeHeader();
-	
-
-}
-
-function replaceContent() {
-	imgSrc = "captcha.do";
-	tmp = new Date(); 
-    tmp = "?"+tmp.getTime() ;
-    document.getElementById("captchaImage").src =imgSrc+tmp;
-    document.forms[0].j_captcha_response.value = "";
-}
-
-function chkvalidate() {
-	var usernm = document.frmLogin.j_username.value;
-	var pswd = document.frmLogin.j_passwordtxt.value;	
-	if(pswd.length!=0){
-		var shapswd = rstr_sha256(pswd);
-		var shapswdhex =hex_sha256(pswd);
-		document.frmLogin.j_password.value=shapswd;	
-		document.frmLogin.j_passwordhex.value=shapswdhex;
-		document.frmLogin.j_passwordtxt.value=shapswd;
-
-	}else{
-		document.frmLogin.j_passwordtxt.value="";
-		}
-	document.frmLogin.login.value="login";
-
-	var rd = document.forms['frmLogin'].userType;
-	
-		if(document.forms['frmLogin'].userType[1].checked == true) {
-			
-				document.forms['frmLogin'].action = "Login.htm";
-				}
-			else if(document.forms['frmLogin'].userType[0].value == "portal") {
-				document.forms['frmLogin'].action = "portalUserLogin.htm";
-			}
-		
-}
-
-function pswdMatch() {
-	var opswd = document.frmLogin.old_passwordtxt.value;
-	var npswd = document.frmLogin.new_passwordtxt.value;
-	var cpswd = document.frmLogin.conf_passwordtxt.value;
-
-	if(opswd.length!=0 && npswd.length!=0 && cpswd.length!=0){		
-		if(cpswd==npswd){ 
-			var old_shapswd = rstr_sha256(opswd);	
-			var new_shapswd = rstr_sha256(npswd);	
-			document.frmLogin.old_password.value=old_shapswd;
-			document.frmLogin.change_password.value=new_shapswd;				
-		}else{
-			alert("New and Confirm passwords doesnot match");
-			document.frmLogin.change_password.value="";
-		}
-		
-	}
-	else
-		document.frmLogin.change_password.value="";
-	document.frmLogin.login.value="chgpswd";
-	document.frmLogin.submit();
-}
-
-function submitDs(dsStatus){
-	document.frmLogin.login.value=dsStatus;
-	document.frmLogin.submit();
-
-}
+</head>
 
 
-
-function resolutionwidth() {
-	var x;
-	var y;
-	x=window.screen.width;
-	y=window.screen.height;
-	alert("x : "+x+" y : "+y);
-	document.getElementById('main').width=x-63;		
-	document.getElementById('main').height=y;	
-	document.getElementById('middle').height=y-50;
-	document.getElementById('leftbar').height=y-50;
-	document.getElementById('rightbar').height=y-50;
-	var xx=x-63;
-	var yy=y-50;
-	alert(xx+"x"+yy);
-	alert("x"+document.getElementById('main').width);
-	alert("y"+document.getElementById('main').height);
-}
-</script><script types="text/javascript">
-
-var hgt=window.screen.availHeight;
-var wid=window.screen.availWidth;
-if((wid<1100)){
-
-	document.write('<link rel="stylesheet" type="text/css" href="css/styleShort.css"media="screen" />');
-	
-}
-else{
-	document.write('<link rel="stylesheet" type="text/css" href="css/style.css"	media="screen" />');
-	
-}
-if ((wid<1024) && (hgt<786)) {
-	alert("For proper working of e-District project minimum resolution of 1024X786 needed."+
-			"+Please adjust your screen resolution");
-	if(navigator.appName=="Microsoft Internet Explorer") { 
-		self.close(); 
-	} 
-	else {
-		window.close(); 
-	} 
-}
-
-function changeHeader() {
-	var rd = document.forms['frmLogin'].userType;
-	for (var i = 0; i < rd.length; i++ ) {
-		if(document.forms['frmLogin'].userType[i].checked == true) {
-			if(document.forms['frmLogin'].userType[i].value == "official") {
-				document.getElementById('loginHeader').innerHTML = "Official Login";
-				document.getElementById("portalcreatn").style.visibility="hidden";
-				document.getElementById("portalcreatn").style.display="none";
-				document.getElementById("resetPassword").style.visibility="hidden"; 
-			
-				document.getElementById("resetPassword").style.display="none";
-				document.getElementById("findLoginname").style.visibility="hidden";
-				document.getElementById("findLoginname").style.display="none";
-				
-				document.getElementById("officialResetPassword").style.visibility="visible";
-				document.getElementById("officialResetPassword").style.display="block";
-				
-			}
-			else if(document.forms['frmLogin'].userType[i].value == "portal") {
-				document.getElementById('loginHeader').innerHTML = "Portal User Login";
-				document.getElementById("portalcreatn").style.visibility="visible";
-				document.getElementById("resetPassword").style.visibility="visible"; 
-				document.getElementById("findLoginname").style.visibility="visible";
-				document.getElementById("findLoginname").style.display="block";				
-				document.getElementById("portalcreatn").style.display="block";
-				document.getElementById("resetPassword").style.display="block";
-				document.getElementById("officialResetPassword").style.visibility="hidden";
-				document.getElementById("officialResetPassword").style.display="none";
-				
-
-			}
-		}
-	}
-}
-
-function checkDateServerSide()
-{
-var sysDate=new Date();
-document.getElementById("clientTime").value=sysDate.getTime();
-	
-}
-
-function  checkDate(){
-loginDAO.getserverDate(gotDate);
-}
-function  gotDate(serverTimeinMilliSec){
-checkNoticeExisting();	
-var sysDate=new Date();
-
-var serverDate= new Date();
-var serverMilliseconds=serverTimeinMilliSec;
-serverDate.setTime(parseFloat(serverMilliseconds)+parseFloat(60000));
-
-if(parseFloat(sysDate.getTime())>parseFloat(serverMilliseconds)+parseFloat(300000)||parseFloat(sysDate.getTime())<parseFloat(serverMilliseconds)-parseFloat(300000)){
-		alert('Your System Clock Appears to be Incorrect,Please Correct it to :'+serverDate+'  Before Logging In');
-		  return;
-		}   
-
-}
-
-</script><link rel="stylesheet" type="text/css" href="./index_files/style.css" media="screen"><script type="text/javascript">   
-
-
-if (/Firefox[\/\s](\d+\.\d+)/.test(navigator.userAgent))
-{ 
- var ffversion=new Number(RegExp.$1) 
- if (ffversion<3.5)
- {  
-	 alert("For best view of e-District project your browser should be  FireFox 3.5 or above .");
- }
-}
-	
-
-if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){ 
- var ieversion=new Number(RegExp.$1)
- if (ieversion<7.0)
-   {
-	   alert("For best view of e-District project  your browser should be  Internet Explorer 7 or above");
-   }
-
-}
-
-function checkNoticeExisting()
-{
-	
-       
-    dwr.util.useLoadingMessage();
-    
-    communityDAO.getAllNotificationDWR(gotNotice);
-    
-}
-
-function gotNotice(notz)
-{
-
-if(notz!=null)
-	{
-
-var noticeStr='';
-for(var i=0;i<notz.length;i++){
-
-
-noticeStr=noticeStr+notz[i].heading+'<br>';
-noticeStr=noticeStr+notz[i].details;
-if(i<notz.length-1){
-noticeStr=noticeStr+'<br><br>';
-	
-}
-
-}
-if(notz.length>0){
-	
-document.getElementById('marQ').innerHTML='<h2>Notice</h2><marquee id="notzdiv" scrolldelay="60" scrollamount="2" direction="up"  style="color:blue;"  onMouseOver="this.stop();" onMouseOut="this.start();"><span>'+noticeStr+'</span></marquee>';
-
-
-}else{
-
-document.getElementById('marQ').innerHTML='<h2>Notice</h2><marquee id="notzdiv" scrolldelay="60" scrollamount="2" behavior="scroll" direction="up"  style="color:black;"  onMouseOver="this.stop();" onMouseOut="this.start();"><span></span></marquee>';
-
-	
-}
-
-
-
-	}
-
-	
-}
-function checkNoticeDetails()
-{
-	
-       
-    dwr.util.useLoadingMessage();
-    
-    communityDAO.getAllNotificationDWR(gotDetails);
-    
-}
-function gotDetails(notdtls)
-{
-
-	if(notdtls!=null)
-	{
-var noticeStr='';
-for(var i=0;i<notdtls.length;i++){
-
-
-noticeStr=noticeStr+notdtls[i].heading+"--->"+notdtls[i].details;
-if(i<notdtls.length-1){
-noticeStr=noticeStr+"......."+"\n"+(parseInt(i)+2+")");
-}
-
-}
-dwr.util.setValue("detaildiv",""+" "+" "+noticeStr+"");
-
-	}
-	else
-	{
-		
-		dwr.util.setValue("detaildiv","notice null");
-	}
-	
-}
-
-function hide(){
-	if(document.getElementById("detaildiv"))
-		document.getElementById("detaildiv").innerHTML="";
-	}
-
-function capLock(e){
-	
-
-	kc = e.keyCode?e.keyCode:e.which;
-	sk = e.shiftKey?e.shiftKey:((kc == 16)?true:false);
-	 if(((kc >= 65 && kc <= 90) && !sk)||((kc >= 97 && kc <= 122) && sk)){
-		
-	  document.getElementById('capsLockDiv').style.visibility = 'visible';
-	 }
-	 else{
-	  document.getElementById('capsLockDiv').style.visibility = 'hidden';
-	 }
-
-		if(window.event){
-					sk1 = window.event.shiftKey?window.event.shiftKey:((window.event.keyCode == 16)?true:false);
-					
-
-			if((window.event.keyCode >= 97 && window.event.keyCode <= 122)&& sk || (window.event.keyCode>=65&&window.event.keyCode<=90)&& !sk)
-	        { 
-				document.getElementById('capsLockDiv').style.visibility = 'visible';
-	        }
-	        else
-	        {    document.getElementById('capsLockDiv').style.visibility = 'hidden';
-	        	
-	        }
-			
-			 
-			}
-	 
-	}
-</script></head>
-
-
-
-
-
-
-
-
-<body onload="load(&#39;null&#39;,&#39;null&#39;); checkDate();">
-
-
-
+<body>
 
 <div id="main">
 <div id="header1" style="padding-left: 0px;"></div>
@@ -508,7 +184,7 @@ the public. <br>
 		Subsequent pages will be displayed in</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><input type="radio" name="LangRadioGroup" id="LangRadioGroup" value="e" checked="checked">English
+		<td colspan="2" align="center"><input type="radio" name="LangRadioGroup1" id="LangRadioGroup1" value="e" checked="checked">English
 		<input type="radio" name="LangRadioGroup" id="LangRadioGroup" value="m">മലയാളം</td>
 	</tr>
 	<tr>
@@ -555,42 +231,14 @@ the public. <br>
 
 <div id="footer"><img src="./index_files/niclogosmall.jpg" align="middle">
 Driving The Next Generation Government.</div>
- <input type="hidden" name="old_password" id="old_password"> <input type="hidden" name="change_password" id="change_password"> </div>
-<script language="JavaScript" type="text/javascript">
-function checkFieldValidators(){
-if(document.getElementById("userType")){
-	  var frmvalidator  = new Validator("frmLogin");
-	if(document.forms['frmLogin'].userType[0].checked == true) 
-	{		 
-	 frmvalidator.EnableOnPageErrorDisplaySingleBox();
-	 frmvalidator.EnableMsgsTogether();
-	 frmvalidator.addValidation("j_username","req","Please enter User Name");
-	 frmvalidator.addValidation("j_username","maxlen=20",	"Max length for User Name is 20");
-	 frmvalidator.addValidation("j_username","minlen=4",	"Min length for User Name is 4");
-	 frmvalidator.addValidation("j_username","email",		"User Name must be a valid email address");
-	 frmvalidator.addValidation("j_passwordtxt","req","Please enter password");
-	 frmvalidator.addValidation("j_username","minlen=4",	"Min length for password is 4");
-	
-}else{
-	 frmvalidator.EnableOnPageErrorDisplaySingleBox();
-	 frmvalidator.EnableMsgsTogether();
-	 frmvalidator.addValidation("j_username","req","Please enter User Name");
-	 frmvalidator.addValidation("j_username","maxlen=20",	"Max length for User Name is 20");
-	 frmvalidator.addValidation("j_username","minlen=4",	"Min length for User Name is 4");
-	 frmvalidator.addValidation("j_username","alphanumeric","User Name can contain alphanumeric chars only");
-	 frmvalidator.addValidation("j_passwordtxt","req","Please enter password");
-	 frmvalidator.addValidation("j_username","minlen=4",	"Min length for password is 4");
-}
-}
-}
-	</script>
+</div>
+
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
  <div class="container pull-right" id="chatbox">
-    <div class="row chat-window col-xs-5 col-md-3 pull-right" id="chat_window_1">
+    <div class="row chat-window col-xs-4 pull-right" id="chat_window_1">
         <div class="col-xs-12 col-md-12">
           <div class="panel panel-default">
                 <div class="panel-heading top-bar">
@@ -600,8 +248,8 @@ if(document.getElementById("userType")){
                     <div class="col-md-4 col-xs-4" style="text-align: right;">
                         <a href="#" style="color: #ffffff;
 "><span id="minim_chat_window" class="glyphicon glyphicon-minus icon_minim"></span></a>
-                        <a href="#" style="color: #ffffff;
-"><span class="glyphicon glyphicon-remove icon_close" data-id="chat_window_1"></span></a>
+                        <!--<a href="#" style="color: #ffffff;
+"><span class="glyphicon glyphicon-remove icon_close" data-id="chat_window_1"></span></a>-->
                     </div>
                 </div>
                 <div id="messagebody" class="panel-body msg_container_base">
@@ -611,7 +259,7 @@ if(document.getElementById("userType")){
 							<div class="col-md-2 col-xs-2 avatar">
 								<img src="govt.png" class="chatimg img-responsive ">
 							</div>
-							<div class="col-md-10 col-xs-10">
+							<div class="col-xs-9 col-xs-offset">
 								<div class="messages msg_receive">
 									<p>Hi sir,<br>
 									   How can i help you ?								
@@ -624,14 +272,14 @@ if(document.getElementById("userType")){
 						
 					   	<!-- USER -->
 						<div class="row msg_container base_sent">
-							<div class="col-xs-10 col-md-10">
+							<div class="col-xs-9 col-md-9">
 								<div class="messages msg_sent">
 									<p>My name is Abhishek Raj. df asfd asdf asf a sdfas fas ad fad f</p>
 									<time datetime="2009-11-13T20:00">User | 10:05:38 PM</time>
 								</div>
 							</div>
-							<div class="col-md-2 col-xs-2 avatar">
-								<img src="user.png" class="chatimg img-responsive ">
+							<div class="col-xs-2 avatar">
+								<img src="user.png" width="100%" class="chatimg">
 							</div>
 						</div>
 						<!-- USER -->
@@ -679,10 +327,6 @@ $(document).on('click', '#new_chat', function (e) {
     var clone = $( "#chat_window_1" ).clone().appendTo( ".container" );
     clone.css("margin-left", size_total);
 });
-$(document).on('click', '.icon_close', function (e) {
-    //$(this).parent().parent().parent().parent().remove();
-    $( "#chatbox" ).hide();
-});
 
 // send function start
 
@@ -695,15 +339,15 @@ if (chat =="") {
     alert('Enter Message');
 } else
 {
-var body =                       '<div class="row msg_container base_sent">' +
-						'<div class="col-md-10 col-xs-10 ">' +
+var body =            '<div class="row msg_container base_sent">' +
+						'<div class="col-md-9 col-xs-9 ">' +
                             '<div class="messages msg_sent">' +
                                 '<p>'+ chat + '</p>'+
-                               ' <time datetime="2009-11-13T20:00">Administrator • Today '+time+'</time>'+
+                               ' <time datetime="2009-11-13T20:00">e-District | '+time+'</time>'+
                             '</div>' +
                         '</div>' +
-                        '<div class="col-md-2 col-xs-2 avatar">' +
-                            '<img class="chatimg" src="https://cheme.mit.edu/wp-content/uploads/2017/01/stephanopoulosgeorge-431x400.jpg" class=" img-responsive ">' +
+                        '<div class="col-xs-1 avatar">'+
+                            '<img class="chatimg" src="user.png" class="img-responsive">' +
                         '</div>' +
 					'</div>';
 }
