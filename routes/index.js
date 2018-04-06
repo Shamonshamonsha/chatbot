@@ -7,7 +7,7 @@ var services = require('../services/main');
 var  custom = require('../services/webhook');
 
 /* GET home page. */
-router.get('/response/', function(req, res, next) {
+router.get('/response', function(req, res, next) {
 
   services.botResponse({
     userQuery:req.query.query

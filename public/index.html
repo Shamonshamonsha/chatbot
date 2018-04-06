@@ -371,7 +371,7 @@ function capLock(e){
 
 
 
-<body onload="load(&#39;null&#39;,&#39;null&#39;); checkDate();">
+<body onload="load(&#39;null&#39;,&#39;null&#39;); checkDate();" ng-app="myApp">
 
 
 
@@ -589,7 +589,7 @@ if(document.getElementById("userType")){
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
- <div class="container pull-right" id="chatbox">
+ <div class="container pull-right" id="chatbox" ng-controller="chatCtrl">
     <div class="row chat-window col-xs-5 col-md-3 pull-right" id="chat_window_1">
         <div class="col-xs-12 col-md-12">
           <div class="panel panel-default">
@@ -604,10 +604,10 @@ if(document.getElementById("userType")){
 "><span class="glyphicon glyphicon-remove icon_close" data-id="chat_window_1"></span></a>
                     </div>
                 </div>
-                <div id="messagebody" class="panel-body msg_container_base">
+                <div id="messagebody" class="panel-body msg_container_base" >
 						
 						<!-- BOT -->
-						<div class="row msg_container base_receive">
+						<div class="row msg_container base_receive" >
 							<div class="col-md-2 col-xs-2 avatar">
 								<img src="govt.png" class="chatimg img-responsive ">
 							</div>
@@ -640,9 +640,9 @@ if(document.getElementById("userType")){
                 </div>
                 <div class="panel-footer">
                     <div class="input-group">
-                        <input id="btn-input" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." required="required" />
+                        <input id="btn-input" ng-model="usertext" type="text" class="form-control input-sm chat_input" placeholder="Write your message here..." required="required" />
                         <span class="input-group-btn">
-                        <button class="btn btn-danger btn-sm" id="btn-chat">Send</button>
+                        <button class="btn btn-danger btn-sm" ng-click="sendChat()" id="btn-chat">Send</button>
                         </span>
                     </div>
                 </div>
@@ -725,7 +725,8 @@ $('#btn-input').keypress(function (e) {
 });
 
 </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="javascripts/main.js"></script>
 <style>
 
 .col-md-2, .col-md-10{
