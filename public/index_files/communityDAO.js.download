@@ -1,0 +1,431 @@
+if (typeof dwr == 'undefined' || dwr.engine == undefined) throw new Error('You must include DWR engine before including this file');
+
+(function() {
+if (dwr.engine._getObject("communityDAO") == undefined) {
+var p;
+
+p = {};
+p._path = '/dwr';
+
+
+
+
+p.getAllCategories = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getAllCategories', arguments);
+};
+
+
+
+
+
+p.getApplicantGenDetailsFromList = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getApplicantGenDetailsFromList', arguments);
+};
+
+
+
+
+
+p.getApplicantAgeGenDWR = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getApplicantAgeGenDWR', arguments);
+};
+
+
+
+
+
+p.getCaste = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getCaste', arguments);
+};
+
+
+
+
+
+p.saveCategory = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'saveCategory', arguments);
+};
+
+
+
+
+
+p.saveReligion = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'saveReligion', arguments);
+};
+
+
+
+
+p.getAllReligion = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getAllReligion', arguments);
+};
+
+
+
+
+
+p.saveCaste = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'saveCaste', arguments);
+};
+
+
+
+
+
+
+p.getCasteWithCategory = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getCasteWithCategory', arguments);
+};
+
+
+
+
+
+p.saveNoticemgmt = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'saveNoticemgmt', arguments);
+};
+
+
+
+
+
+
+p.getAllCasteDwr = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getAllCasteDwr', arguments);
+};
+
+
+
+
+
+p.getCountCaste = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getCountCaste', arguments);
+};
+
+
+
+
+p.getAllCaste = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getAllCaste', arguments);
+};
+
+
+
+
+
+p.isCategoryExisting = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'isCategoryExisting', arguments);
+};
+
+
+
+
+
+p.isReligionExisting = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'isReligionExisting', arguments);
+};
+
+
+
+
+
+p.isCasteExisting = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'isCasteExisting', arguments);
+};
+
+
+
+
+
+p.populateReligionDetails = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'populateReligionDetails', arguments);
+};
+
+
+
+
+
+p.populateCategoryDetails = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'populateCategoryDetails', arguments);
+};
+
+
+
+
+
+p.updateCategory = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'updateCategory', arguments);
+};
+
+
+
+
+
+p.updateCaste = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'updateCaste', arguments);
+};
+
+
+
+
+
+p.updateReligion = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'updateReligion', arguments);
+};
+
+
+
+
+
+p.isRelationshipIdExisting = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'isRelationshipIdExisting', arguments);
+};
+
+
+
+
+
+p.isRelationshipExisting = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'isRelationshipExisting', arguments);
+};
+
+
+
+
+
+p.saveRelationship = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'saveRelationship', arguments);
+};
+
+
+
+
+p.getAllRelationship = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getAllRelationship', arguments);
+};
+
+
+
+
+
+p.populateRelationshipDetails = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'populateRelationshipDetails', arguments);
+};
+
+
+
+
+p.maxRelationId = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'maxRelationId', arguments);
+};
+
+
+
+
+
+p.updateRelationship = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'updateRelationship', arguments);
+};
+
+
+
+
+
+
+p.getAllCasteFromAToZ = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getAllCasteFromAToZ', arguments);
+};
+
+
+
+
+
+p.getLegalHeirsAsPerNeighbours = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getLegalHeirsAsPerNeighbours', arguments);
+};
+
+
+
+
+
+p.getLegalHeirsAsPerOfficer = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getLegalHeirsAsPerOfficer', arguments);
+};
+
+
+
+
+
+p.getLegalHeirsAsPerRelatives = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getLegalHeirsAsPerRelatives', arguments);
+};
+
+
+
+
+
+p.getLegalHeirsAsPerWitness = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getLegalHeirsAsPerWitness', arguments);
+};
+
+
+
+
+
+p.findDetailsOfGazette = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'findDetailsOfGazette', arguments);
+};
+
+
+
+
+
+p.isNoticeExisting = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'isNoticeExisting', arguments);
+};
+
+
+
+
+p.getAllNotification = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getAllNotification', arguments);
+};
+
+
+
+
+p.getAllNotificationDWR = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getAllNotificationDWR', arguments);
+};
+
+
+
+
+
+p.updateNoticemgmt = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'updateNoticemgmt', arguments);
+};
+
+
+
+
+
+p.getCasteWithoutSEBC = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getCasteWithoutSEBC', arguments);
+};
+
+
+
+
+
+
+p.getObject = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getObject', arguments);
+};
+
+
+
+
+
+p.saveObject = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'saveObject', arguments);
+};
+
+
+
+
+
+
+p.removeObject = function(p0, p1, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'removeObject', arguments);
+};
+
+
+
+
+
+p.getObjects = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getObjects', arguments);
+};
+
+
+
+
+
+
+
+
+
+p.performBulkUpdate = function(p0, p1, p2, p3, p4, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'performBulkUpdate', arguments);
+};
+
+
+
+
+
+
+
+
+
+p.generateBulkUpdateQuery = function(p0, p1, p2, p3, p4, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'generateBulkUpdateQuery', arguments);
+};
+
+
+
+
+p.clearHsession = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'clearHsession', arguments);
+};
+
+
+
+
+
+p.getFromSQLquery = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getFromSQLquery', arguments);
+};
+
+
+
+
+p.getSessionFactory = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getSessionFactory', arguments);
+};
+
+
+
+
+
+p.setSessionFactory = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'setSessionFactory', arguments);
+};
+
+
+
+
+p.getHibernateTemplate = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'getHibernateTemplate', arguments);
+};
+
+
+
+
+
+p.setHibernateTemplate = function(p0, callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'setHibernateTemplate', arguments);
+};
+
+
+
+
+p.afterPropertiesSet = function(callback) {
+return dwr.engine._execute(p._path, 'communityDAO', 'afterPropertiesSet', arguments);
+};
+
+dwr.engine._setObject("communityDAO", p);
+}
+})();
+

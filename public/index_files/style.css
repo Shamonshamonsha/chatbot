@@ -1,0 +1,394 @@
+body {
+	
+	font-family:Arial, Helvetica, sans-serif, Verdana;
+	font-size:12px;
+	margin: 0;
+	padding: 0;
+	
+}
+#main{
+	width:  100%;
+	height: 100%;
+	margin: 0;	
+	background:#eaeaea;
+}
+
+#main1{
+	width: 100%;
+	height:80px;
+	margin: 0 ;	
+	
+}
+
+/* header image */
+#header{
+	width: 100%;
+	height:150px;
+	margin:auto;
+	clear:both;
+	background: url(../images/header1.jpg) no-repeat center #6fb3f3;
+}
+
+#header1{
+	width: 100%;
+	height:80px;
+	margin:auto;
+	clear:both;
+	background: url(../images/header2.jpg) no-repeat center #6fb3f3;
+}
+
+/* menu bar */
+/*#menu{
+	width: 1000px;
+	height:50 ;
+	margin: 0 auto;
+	background-color:#ffffff;
+	clear:both;
+}*/
+
+/* content */
+#content{
+	padding: 0px 0px 5px 5px;
+	width: 24%;
+	height:625px;
+	float:left;
+	clear:both;
+	margin:auto;
+	border: 2px thin #000000;	
+	background:#eaeaea;
+}
+
+#content1{
+	width: inherit;
+	height:638px;
+	float:left;
+	clear:both;
+	margin:auto;
+	border: 2px thin #000000;	
+	background:#eaeaea;
+}
+
+/*footer*/
+#footer{
+	/*width: inherit;*/
+	width: 100%;
+	height:30px;
+	color:#fcfdfd;
+	clear:both;
+	text-align: center;
+	background:#5393d5;
+	font-family:Captain Howdy;
+}
+#linkDiv {
+	line-height: 30px;
+	margin: 0px 30px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: 1px dotted #D7D7D7;
+	background: none;
+	text-align: justify;
+}
+#leftbar{
+	padding: 5px 5px 5px 5px;
+	width: 95%;
+	height:625px;
+	float:left;
+	border: 2px thin #000000;	
+	background:#eaeaea;
+}
+
+#leftbar ul {
+	
+	padding-left: 10px;
+	width: 220px;
+	list-style: none;
+}
+
+#leftbar li {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #D6D6D6;
+	background: #ffffff;
+}
+
+#leftbar li ul {
+	margin: 0px 0px 0px 0px;
+	padding-bottom: 30px;
+	background: none;
+}
+
+#leftbar li li {
+	line-height: 30px;
+	margin: 0px 30px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: 1px dotted #D7D7D7;
+	background: none;
+	text-align: justify;
+}
+
+#leftbar li li span {
+	display: block;
+	margin-top: -20px;
+	padding: 0;
+	font-size: 11px;
+	font-style: italic;
+}
+
+#leftbar h2 {
+	
+	text-align:center;
+	padding: 6px 6px 6px 6px;
+	background:  url(../images/loginhead.jpg) repeat #F6F6F6;
+	letter-spacing: -.5px;
+	font-size: 1.4em;
+	color: #ffffff;
+}
+#leftbar p {
+	margin: 0 0px;
+	padding: 0px 30px 20px 30px;
+	text-align: justify;
+}
+
+#leftbar a {
+	border: none;
+	color: #727272;
+	margin-bottom: 20px;
+	background: #ffffff;
+	text-decoration: none;
+}
+
+#leftbar a:hover {
+	text-decoration: underline;
+	color: #8A8A8A;
+}
+
+#middle{
+	padding: 5px 15px 5px 5px;
+	width:  49%;
+	height:638px;
+	color:#85d5dc;
+	float:left;
+	text-align: center;
+	background:#ffffff;		
+}
+
+#mainContent{
+	margin: 0 50px 0 50px;
+	padding: 5px 0px 5px 5px;
+	width:  90%;
+	height:625px;
+	color:#85d5dc;
+	float:left;
+	text-align: center;
+	background:#ffffff;		
+}
+
+#contentRight{
+	padding: 0px 0px 0px 0px;
+	width: 25%;
+	height:638px;
+	float:right;
+	border: 2px thin #000000;	
+	background:#eaeaea;
+}
+
+#rightbar{
+	padding: 5px 5px 5px 0px;
+	width: 95%;
+	height:auto;
+	color:#000000;
+	float:right;
+	text-align: justify;
+
+}
+
+#rightbar ul {
+	/*margin: 0px 0x 10px 0px; top right bottom left */
+	padding-left: 0px;
+	width: 235px;
+	list-style: none;
+}
+
+#rightbar li {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #D6D6D6;
+	border-right: 1px solid #D6D6D6;
+	border-left: 1px solid #D6D6D6;
+	background: #ffffff;
+}
+
+/*#rightbar li ul {
+	margin: 0px 0px 0px 0px;
+	padding-bottom: 30px;
+	background: none;
+}
+
+#rightbar li li {
+	line-height: 30px;
+	margin: 0px 30px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: 1px dotted #D7D7D7;
+	background: none;
+}
+
+#rightbar li li span {
+	display: block;
+	margin-top: -20px;
+	padding: 0;
+	font-size: 11px;
+	font-style: italic;
+}*/
+
+/*#rightbar p {
+	margin: 0 0px;
+	padding: 0px 30px 20px 30px;
+	text-align: justify;
+}*/
+
+#rightbar h2 {
+	
+	text-align:center;
+	padding: 6px 6px 6px 6px;
+	background:  url(../images/loginhead.jpg) repeat #F6F6F6;
+	letter-spacing: -.5px;
+	font-size: 1.4em;
+	color: #ffffff;
+}
+
+#rightbar a {
+	border: none;
+	color: #727272;
+}
+
+#rightbar a:hover {
+	text-decoration: underline;
+	color: #8A8A8A;
+}
+
+/*START User Informative Messages */
+/*Rijisha 
+* 30-08-2010
+*/
+#rightBottomMessages{
+	margin-top:inherit;
+	width:  100%;
+	height:auto;
+	color:#2610E8;
+	float:right;	
+	text-align: justify;
+}
+#rightBottomMessages1{
+	margin-top:inherit;
+	width:  100%;
+	height:auto;
+	color:#2610E8;
+	float:right;	
+	text-align: justify;
+}
+
+/*END User Informative Messages */
+
+/* login */
+
+.login {
+	/*margin: 0 0px;
+	padding: 10px 10px 5px 10px;*/
+	text-align: left;
+	width: 50%;
+}
+
+#rightTdClass {
+	width: 60%;
+}
+
+.rightLblClass {
+	width: 35%;
+}
+
+#loginDiv {
+	width: 250px;
+	height: 60px;
+	padding: 20px 0px 20px 0px;
+}
+
+#loginDiv form {
+	height: 41px;
+	margin: 0;
+	padding: 10px 0 0 30px;
+}
+
+#loginDiv fieldset {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.login-text {
+	size: 90%;
+	width: 90%;
+	float: left;
+	padding: 6px 5px 2px 5px;
+	border: 1px solid #DEDEDE;
+	background: #FFFFFF;
+}
+
+.captcha-text {
+	size: 100%;
+	width: 90%;
+	float: left;
+	padding: 6px 5px 2px 5px;
+	border: 1px solid #DEDEDE;
+	background: #FFFFFF;
+}
+
+
+/* rightbar */
+
+.error_strings{
+	font-family: monospace;
+	font-size: 10px;
+	font-style: italic;
+	color: red;
+}
+
+.changepic
+{
+	background-image: url('images/loginout.png'); 
+	height: 39px; 
+	width: 109px;
+	}
+
+#dot
+{
+	border-bottom:2px dotted #D7D7D7;
+	}
+#docs{
+	
+}
+.button {
+    border: 1px solid #006;   
+    font-family : Tahoma;
+    font : small-caps;
+    font-size :14;
+    font-weight:bold;
+    color: white;
+    background-image:  url(../images/loginhead.jpg);
+    background-repeat:repeat-x;
+	letter-spacing: .5px;
+}
+.button:hover {
+
+	PADDING-LEFT: 5px; 
+	PADDING-RIGHT: 5px; 
+   	vertical-align:middle;
+	background-color:#78B8F5;
+	COLOR: #000000; 
+}
+
+#portalleftbar{
+	padding: 5px 5px 5px 5px;
+	width: 95%;
+	height:625px;
+	float:left;
+	border: 1px thin #000000;	
+	background:#eaeaea;
+}
+
