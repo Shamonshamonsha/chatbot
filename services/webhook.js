@@ -11,11 +11,21 @@ module.exports = {
 
     customResult:function(id,callback){
 
-        for (var key in payload) {
+        console.log("From user",id);
 
+        let searchField = 'id';
+
+        let result;
+
+        for (var i=0 ; i < data.length ; i++)
+        {
+            if (data[i][searchField] == id) {
+               console.log('result found',data[i]);
+               result = data[i];
+            }
         }
-        
-        return callback(payload)
+
+        return callback(result);
     }
 
 }

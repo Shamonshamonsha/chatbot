@@ -23,12 +23,16 @@ router.get('/response/', function(req, res, next) {
 
 router.post('/custom',function(req,res,next){
   
-    custom.customResult(req.body.result.resolvedQuery);
+    console.log("From user",req.body.result.resolvedQuery);
+    custom.customResult(req.body.result.resolvedQuery,(result)=>{
+       console.log('ok',result);
+       res.json({
+        'speech':'Your details are '+result.name,
+        'displayText':'Result from webhook'
+        });
+    });
 
-   res.json({
-       'speech':'Hello from webhook',
-       'displayText':'Result from webhook'
-   });
+   
 });
 
 module.exports = router;
